@@ -27,7 +27,7 @@ namespace SimpleCrm.Web
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Bonjour le monde");
             });
         }
     }
