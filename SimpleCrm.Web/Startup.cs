@@ -37,6 +37,7 @@ namespace SimpleCrm.Web
                 });
             }
 
+            app.UseFileServer();
             app.UseWelcomePage(new WelcomePageOptions
             {
                 Path = "/welcome"
