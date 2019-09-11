@@ -5,15 +5,16 @@ namespace SimpleCrm.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private ICustomerData _customerData;
+
+        public HomeController(ICustomerData customerData)
+        {
+            _customerData = customerData;
+        }
+
         public IActionResult Index()
         {
-            var model = new CustomerModel
-            {
-                Id = 1,
-                FirstName = "John",
-                LastName = "Doe",
-                PhoneNumber = "555-555-4321"
-            };
+            var model = _customerData.GetAll();
             return View(model);
         }
     }
