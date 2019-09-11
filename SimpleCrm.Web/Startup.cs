@@ -39,18 +39,18 @@ namespace SimpleCrm.Web
                 });
             }
 
-            app.UseFileServer();
-
             app.UseMvc(ConfigureRoutes);
 
-            app.Run(ctx => ctx.Response.WriteAsync("Not found"));
+            app.UseStaticFiles();
+
+            app.Run(ctx => ctx.Response.WriteAsync("Not found, " 
+                + greeter.GetGreeting())); ;
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
         {
             // /Home/Index
             // HomeController class, Index method
-
             routeBuilder.MapRoute("Default",
                 "{controller=Home}/{action=Index}/{id?}");
         }
