@@ -4,17 +4,12 @@
     ViewBag.Title = "Customers";
 }
 <h1>Customers</h1>
-<p>
-    @Model.CurrentMessage
-</p>
 <table>
     @foreach (var customer in Model.Customers)
     {
         <tr>
             <td>
-                <!-- change in this cell -->
-                <a href="/home/details/@customer.Id">Details</a>
-                @Html.ActionLink("View", nameof(HomeController.Details), new { id = customer.Id })
+                <a asp-action="Details" asp-route-id="@customer.Id">Detail</a>
             </td>
             <td>@customer.FirstName</td>
             <td>@customer.LastName</td>
@@ -23,6 +18,8 @@
     }
 </table>
 
+<a asp-action="Create">Create</a>
+
 @section footer {
     <h3>@Model.CurrentMessage</h3>
-}`;
+}
